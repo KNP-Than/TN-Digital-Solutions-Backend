@@ -10,7 +10,8 @@ export class TripsService {
       return data.filter(
         (trip) =>
           trip.title.includes(query.keyword) ||
-          trip.description.includes(query.keyword),
+          trip.description.includes(query.keyword) || 
+          trip.tags.some(tag => tag.includes(query.keyword)),
       );
     } else {
       return data;
